@@ -12,7 +12,7 @@ About this script:
     fft'd signal that leads to a df which cannot exactly represent the frequency component. 
     
     For more details on this I made a (shitty) powerpoint which I stored here:
-        C:\Users\jcb137\OneDrive\Documents\University\PhD\Math Notes
+        C:\\Users\\jcb137\\OneDrive\\Documents\\University\\PhD\Math Notes
 
 
 @author: jcb137

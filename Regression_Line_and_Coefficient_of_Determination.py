@@ -21,13 +21,17 @@ Created on Mon Mar  7 12:51:04 2016
 # INPUTS -----------------------------
 # X & Y are the two varibles you wish to correlate in array format
 
+# OUTPUTS
+# r_squared: coefficient of determination
+# m: slope of best fit line
+# b: intercept of best fit line with the y axis
+
 def linear_regression_line_analysis(X, Y):
 
 # Finding the linear regression line that minimises the summed squared error between the two varibles
 
     if len(X) != len(Y):        # checking the inputs are the same size
-        print('ERROR: the inputs for X and Y must be the same size as each X element should have a corresponding Y element that was observed')
-        return()
+        raise Exception('ERROR: the inputs for X and Y must be the same size as each X element should have a corresponding Y element that was observed')
         
     # Working out the arguments needed to calculate the gradient of the regression line, see notes I made stored in:
     # OneDrive\Documents\University\PhD\Math Notes\Regression Line Analysis and Correlation Coefficient.pdf

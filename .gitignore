@@ -1,0 +1,47 @@
+# DONT OPEN THIS IN NOTE PAD COZ IT FORMATS CRAP!!!! (OPEN IN SUBLIME TEXT)
+
+# What this file is about:
+#		 Files with these extensions will be ignored by git.
+
+# 		Also NB, that this file had to be made with Vim because windows explorer doesnt normally allow 
+# 		for files names starting with .'s that also dont have an extension. 
+
+
+# My own ignores
+*.p
+*.pyc
+*.png
+*.eps
+*.ini
+# Below is the file extension for windows folder shortcuts, ie we dont want to include these as these files are really just 
+# links to a folder elsewhere.
+*.lnk
+
+# Ignores taken from: https://gist.github.com/octocat/9257657
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite

@@ -39,7 +39,10 @@ def bland_altman_plot(X, Y, *args, **kwargs):
     sd        = np.std(diff, axis=0)            # Standard deviation of the difference
 
     plt.scatter(mean, diff, *args, **kwargs)
-    plt.axhline(md,           color='gray', linestyle='--')
+    plt.axhline(md,           color='gray', linestyle='--', linewidth = 2)
+    plt.text(plt.xlim()[1], md, ' mean bias\n {:.2f}'.format(round(md), fontweight ='bold'), verticalalignment = 'center')
     plt.axhline(md + 1.96*sd, color='gray', linestyle='--')
+    plt.text(plt.xlim()[1], md + 1.96*sd, ' +1.96SD\n {:.2f}'.format(round(md + 1.96*sd,4)), verticalalignment = 'center')
     plt.axhline(md - 1.96*sd, color='gray', linestyle='--')
+    plt.text(plt.xlim()[1], md - 1.96*sd, ' -1.96SD\n {:.2f}'.format(round(md - 1.96*sd,4)), verticalalignment = 'center')
     return()

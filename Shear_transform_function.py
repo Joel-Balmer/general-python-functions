@@ -37,14 +37,14 @@ max_neg_shear_index: the index of the maximum NEGATIVE vertical distance between
 def shear_transform(signal, shearline_start_index,  shearline_end_index):
     
     import numpy as np
-      
-    # Checking if the shearline start occurs after the shearline end, in which case an error is raised
-    if  shearline_start_index >  shearline_end_index:
-        raise Exception('ERROR the first shearline_end_index point is before the first shearline start point')
-        
+    
     # Checking if shearline end index was entered as -1, indicating that the final point in the signal should be the shearline end point
     if  shearline_end_index == -1:
          shearline_end_index = len(signal)-1
+    
+    # Checking if the shearline start occurs after the shearline end, in which case an error is raised
+    if  shearline_start_index >  shearline_end_index:
+        raise Exception('ERROR the first shearline_end_index point is before the first shearline start point')
         
     # Working out the line, y = mx+c, joining  shearline_start_index with a  shearline_end_index
     m = (signal[shearline_end_index]-signal[ shearline_start_index])/( shearline_end_index- shearline_start_index)

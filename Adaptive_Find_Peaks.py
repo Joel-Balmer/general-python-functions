@@ -283,7 +283,7 @@ def max_peak_finder(signal, threshold = 'unspecified', initial_thres = 'unspecif
     if threshold == 'unspecified': 
 
         if vert_offset == 'unspecified':
-            print('No vert_offset was entered, therefore default of 0 will be used making the threshold = moving mean')          
+            # No vert_offset was entered, therefore default of 0 will be used making the threshold = moving mean        
             vert_offset = 0
         
         if window_length == 'unspecified':
