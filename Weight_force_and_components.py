@@ -39,14 +39,19 @@ def weight_force_and_components(m, theta):
                  
     INPUTS:
     ----------
-    - m: mass of the object in kg.
-    - theta: the incline/decline of the surface in DEGREES (0 --> 90) (function converts to radians for the numpy trig functions)
+    m : int or array
+        mass of the object in kg.
+    theta : int or array
+        the incline/decline of the surface in DEGREES (0 --> 90) (function converts to radians for the numpy trig functions)
         
     OUTPUTS:
     ----------
-    - F_w: the weight of a mass
-    - F_norm: the normal force in units of Newtons.
-    - F_grad: the gradable force, that is the weight forces component that acts to move a mass down an incline/decline
+    F_w : int if both inputs are int, else array
+        the weight of a mass
+    F_norm :  int if both inputs are int, else array
+        the normal force in units of Newtons.
+    F_grad :  int if both inputs are int, else array
+        the gradable force, that is the weight forces component that acts to move a mass down an incline/decline
     
     """
     
