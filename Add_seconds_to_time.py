@@ -53,3 +53,6 @@ if __name__ == "__main__":
     print(add_seconds_to_time(time,10,'str'))
     print(add_seconds_to_time(time,60*60))
     print(add_seconds_to_time(time, np.int32(1)))
+    
+    time = datetime.time(8,47,3)
+    print(add_seconds_to_time(time,669990,'str'))
