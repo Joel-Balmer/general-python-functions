@@ -9,7 +9,7 @@ Created on Sun Apr 12 20:24:59 2020
 # important numpy
 import numpy as np
 
-def weight_force_and_components(m, theta):
+def weight_force_and_components(m, theta, theta_units = 'radians'):
     """
     PURPOSE:
     -----
@@ -41,8 +41,10 @@ def weight_force_and_components(m, theta):
     ----------
     m : int or array
         mass of the object in kg.
-    theta : int or array
-        the incline/decline of the surface in DEGREES (0 --> 90) (function converts to radians for the numpy trig functions)
+    theta : int or array (by default in the SI unit radians, see theta_units below)
+        the incline/decline of the surface in by default in RADIANS (0 --> pi/2) but can be degress (0 --> 90) if theta_units = 'degrees'
+    theta_units : str (optional, defaults to the SI unit 'radians')
+        A string input indicating the units of the angle theta, can be either the SI unit radians (the default value) or degrees.
         
     OUTPUTS:
     ----------
@@ -55,11 +57,15 @@ def weight_force_and_components(m, theta):
     
     """
     
+    # Checking the theta_units string input:
+    if theta_units != 'radians' and theta_units != 'degrees':
+        raise Exception(f"theta_units input of '{theta_units}' is invalid, it must be either 'radians' (the default value) or 'degrees'")
+    
     F_w = -9.81*m
     
     # NB theta should be in degrees, below it is converted to radians for numpy trig functions!
-    F_norm = F_w*np.cos(theta*np.pi/180)
-    F_grad = F_w*np.sin(theta*np.pi/180)
+    F_norm = F_w*np.cos(theta*((np.pi/180) if theta_units == 'degrees' else 1))
+    F_grad = F_w*np.sin(theta*((np.pi/180) if theta_units == 'degrees' else 1))
     
     return(F_w,F_norm,F_grad)
 
@@ -69,8 +75,15 @@ def weight_force_and_components(m, theta):
 if __name__ == "__main__":  
     
     m = 20480           # mass in kg
-    theta = 15          # slope/grade in degrees
-    theta_array = np.array([15,10,20])
+    theta_degrees = 15          # slope/grade in degrees
+    theta_radians = theta_degrees*np.pi/180
+    theta_degrees_array = np.array([15,10,20])
+    theta_radians_array = np.array([15,10,20])*(np.pi/180)
     
-    print(weight_force_and_components(m, theta))
-    print(weight_force_and_components(m, theta_array))    
+    print(weight_force_and_components(m, theta_radians))
+    print(weight_force_and_components(m, theta_degrees, theta_units = 'degrees'))
+    print(weight_force_and_components(m, theta_degrees_array, theta_units = 'degrees'))
+    print(weight_force_and_components(m, theta_radians_array, theta_units = 'radians'))
+    
+    # the below line should fail
+    # weight_force_and_components(m,theta_degrees, 'test for failure')
