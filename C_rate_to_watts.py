@@ -8,7 +8,10 @@ Created on Tue Apr 14 12:54:20 2020
 
 def C_rate_to_watts(C,E_cap,E_unit):
     """
-    To convert power expressed as C-rate (https://batteryuniversity.com/learn/article/what_is_the_c_rate) to  SI unit of Watts.
+    To convert power expressed as C-rate to  SI unit of Watts. For example, an 80kWh battery outputing 80kW is said to output 1C.
+    
+    NOTE, that the power expressed as a C-rate is not the usual way C-rate is expressed:
+    https://batteryuniversity.com/article/bu-402-what-is-c-rate
      
     CONVERSION EQUATION:
     
